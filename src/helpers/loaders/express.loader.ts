@@ -17,8 +17,8 @@ export function InitExpress() {
         App.use(bodyParser.json());
 
         // Start server
-        App.listen(Port, () => {
-            Logger.info(`Server listening in: http://127.0.0.1:${Port}`);
+        const Server = App.listen(Port, () => {
+            Logger.info(`Server listening in: ${JSON.stringify(Server.address())}`);
         });
     } catch (error) {
         Logger.error('Error while loading express: \n\n' + error);
